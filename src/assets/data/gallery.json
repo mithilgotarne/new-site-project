@@ -1,0 +1,60 @@
+[
+    {
+        "id" : "gallery-1",
+        "name" : "Gallery 1",
+        "photos": {
+            "data":[
+
+                { "name" : "Amit Ghoda", "src" : "assets/images/gallery/gallery-1/20150619_163812.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/20160223_155025(0).jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/20160223_155039(0).jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/20160223_155141.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/20160223_155301(0).jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/20160223_155420.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/20160223_155422.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/20160223_155429.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/20160223_155700.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/20160223_155713.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20140326-WA0022.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160117-WA0007.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160126-WA0011.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160126-WA0012.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160205-WA0128.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160212-WA0020.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160212-WA0030.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160217-WA0005.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160217-WA0006.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160219-WA0004.jpg" },
+                { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160219-WA0005.jpg" }
+            ] 
+        }
+    },
+     {
+         "id" : "gallery-2",
+         "name" : "Gallery 2",
+         "photos" : {
+             "data":
+                 [
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160219-WA0006.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160222-WA0009.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160222-WA0036.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160222-WA0081.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160222-WA0085.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160226-WA0024.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160302-WA0051.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160302-WA0062.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160315-WA0014.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160315-WA0023.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160322-WA0001.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160328-WA0163.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160328-WA0165.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160404-WA0071.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160502-WA0133.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160607-WA0068.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IMG-20160617-WA0047.jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IPR_1863(1).jpg" },
+                    { "name" : "", "src" : "assets/images/gallery/gallery-1/IPR_1863.jpg" }
+                 ]
+         }
+     }
+]

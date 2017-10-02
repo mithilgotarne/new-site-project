@@ -1,0 +1,84 @@
+$primary-color : #FD694D;
+
+img:hover{
+    cursor: pointer;
+}
+
+a, a:link{
+    text-decoration: none;
+}
+
+/* .modal-fullscreen */
+
+.modal-fullscreen {
+    background: rgba($color: #000, $alpha: 0.8);;
+}
+.modal-fullscreen .modal-content {
+    background: transparent;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.modal-backdrop.modal-backdrop-fullscreen {
+    background: #ffffff;
+}
+.modal-backdrop.modal-backdrop-fullscreen.in {
+    opacity: .97;
+    filter: alpha(opacity=97);
+}
+
+/* .modal-fullscreen size: we use Bootstrap media query breakpoints */
+
+.modal-fullscreen .modal-dialog {
+    margin: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+
+    img:hover{
+        cursor: default;
+    }
+
+    .image{
+        margin-top: 40px;
+
+        @media (min-width: 768px) {
+           margin-top: 30px;
+        }
+        @media (min-width: 992px) {
+            margin-top: 20px;
+        }
+        @media (min-width: 1200px) {
+             margin-top: 5vh;
+        }
+    }
+
+    p{
+        color: white;
+    }
+
+    .fa{
+        margin: 16px;
+        color: white;
+    }
+
+    .fa:hover{
+        cursor: pointer;
+    }
+
+}
+@media (min-width: 768px) {
+    .modal-fullscreen .modal-dialog {
+        width: 750px;
+}
+}
+@media (min-width: 992px) {
+    .modal-fullscreen .modal-dialog {
+        width: 970px;
+}
+}
+@media (min-width: 1200px) {
+    .modal-fullscreen .modal-dialog {
+        width: 1170px;
+}
+}

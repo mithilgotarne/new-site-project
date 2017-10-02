@@ -1,0 +1,25 @@
+{
+  "dynamic": {
+    "group": [
+        {
+            "name": "facebook",
+            "urls": {
+                "https://graph.facebook.com/": {
+                "match": "prefix"
+                }
+            },
+            "cache": {
+                "optimizeFor": "performance",
+                "maxAgeMs": 86400000,
+                "maxEntries": 20,
+                "strategy": "lru"
+            }
+        }
+    ]
+  },
+  "routing": {
+      "index": "/index.html"
+  },
+  "start_url": "/index.html",
+  "theme_color": "#FD694D"
+}

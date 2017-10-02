@@ -1,0 +1,56 @@
+{
+    "eng" : {
+        "info_title":"Information",
+        "first_name" : "Amit",
+        "middle_name" : "Krushna",
+        "last_name" : "Ghoda",
+        "desc" : "",
+        "office_address" : {
+            "title":"Office Address",
+            "value":"Charoti Naka, Dahanu-Jawhar Rd., Taluka Dahanu, District Palghar - 401602."
+        },
+        "home_address" : {
+            "title":"Home Address",
+            "value":"Ranshet, Taluka Dahanu, District Palghar - 401602."
+        },
+        "email": {
+            "title":"Email",
+            "value":"amitghoda1982@gmail.com"
+        },
+        "mobile": {
+            "title":"Phone",
+            "value":"9765445532, 9260445532"
+        },
+        "working_hours":{
+            "title":"Working Hours",
+            "value":"<li><strong>Monday - Friday</strong> - 9am to 5pm</li><li><strong>Saturday</strong> - 9am to 2pm</li><li><strong>Sunday</strong> - Closed</li>"
+        }
+    },
+    "mar" : {
+        "info_title":"माहिती",
+        "first_name" : "अमित",
+        "middle_name" : "कृष्णा",
+        "last_name" : "घोडा",
+        "desc" : "१३०, (अ.ज.) पालघर आमदार",
+        "office_address" : {
+            "title":"कार्यालयाचा पत्ता",
+            "value":"चरोटी नाका, डहाणू-जव्हार रोड, ता. डहाणू, जि. पालघर - ४०१६०२."
+        },
+        "home_address" : {
+            "title":"घरचा पत्ता",
+            "value":"मु.पो. रानशेत, ता. डहाणू, जि. पालघर - ४०१६०२."
+        },
+        "email": {
+            "title":"ई-मेल",
+            "value":"amitghoda1982@gmail.com"
+        },
+        "mobile": {
+            "title":"फोन",
+            "value":"९७६५४४५५३२, ९२६०४४५५३२"
+        },
+        "working_hours":{
+            "title":"कार्यांचे तास",
+            "value":"<li><strong>सोमवार-शुक्रवार</strong> - स. ९ वा. ते सं. ५ वा. पर्यंत</li><li><strong>शनिवारी</strong> - स. ९ वा ते दु. २ वा. पर्यंत</li><li><strong>रविवारी</strong> - बंद</li>"
+        }
+    }
+}

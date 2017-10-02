@@ -1,0 +1,209 @@
+/* You can add global styles to this file, and also import other style files */
+
+body{
+  padding-top: 70px;
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+@media (min-width: 1325px){
+    body{
+        background-image: url('assets/images/flag.jpg'), url('assets/images/flag.jpg');
+        background-size: 14% 100vh, 14% 100vh ;
+        background-position: 0px 70px, 101% 70px;
+        background-repeat: no-repeat, no-repeat;
+        background-attachment: fixed, fixed;
+    }
+}
+
+p {
+  color: #9F9F9F;
+}
+
+ol, ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a:hover,
+.dropdown-menu > li a:hover,
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover {
+  color: #FD694D;
+  background-color: transparent;
+}
+
+.primary-color{
+  color: #FD694D;
+}
+
+.container{
+  max-width: 970px;
+}
+
+.navbar-default {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.body-container {
+  background-color: #FFFFFF;
+}
+
+.center {
+  text-align: center;
+}
+
+.marginTop {
+  margin-top: 30px;
+}
+
+.paddingBottom {
+  padding-bottom: 30px;
+}
+
+.dropdown-menu {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.dropdown-menu > li:hover {
+  padding-left: 2px;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:visited,
+.navbar-default .navbar-nav > .active > a:active,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > li > a:hover,
+.dropdown.open,
+.dropdown-menu > li:hover,
+.dropdown-menu > .active,
+{
+  color: #FD694D;
+  background-color: transparent;
+  border-bottom: 2px solid #FD694D;
+}
+
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:active,
+.dropdown-menu > .active > a:visited,
+.dropdown-menu > .active > a:focus{
+  color: #FD694D;
+  background-color: transparent;
+}
+
+#left-floating-icons {
+  width: 4%;
+  margin-left: 96%;
+  margin-top: 8vh;
+  text-align: center;
+}
+
+li a,
+a,
+a:visited,
+a:link,
+a:active,
+a:focus,
+footer li a,
+.navbar-default .navbar-nav > li > a,
+.dropdown-menu > li > a {
+  color: #9F9F9F;
+  background-color: transparent;
+}
+
+@media (max-width: 767px){
+  .navbar-default .navbar-nav .open .dropdown-menu>li {
+        a, a:focus, a:link{
+          color: #9F9F9F;
+          background-color: transparent;
+        }
+        a:hover{
+          color:#FD694D;
+        }
+  }
+}
+
+.navbar-default .navbar-nav > li > a.btn-primary, a.btn-primary, .btn-primary{
+  color: white;
+  background-color: #FD694D;
+  border-color: #db5a43;
+}
+
+
+.navbar-default .navbar-nav > li > a.btn-primary:hover,
+.navbar-default .navbar-nav > li > a.btn-primary:active, 
+.navbar-default .navbar-nav > li > a.btn-primary:focus,
+a.btn-primary:hover, a.btn-primary:active, a.btn-primary:focus,
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus{
+    color: white;
+    background-color: #db5a43;
+    border-color: #db5a43;
+}
+
+.social-icons, footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.social-icons > li {
+  display: inline-flex;
+  padding: 2px;
+  margin-right: 10px;
+  font-size: 1.3em;
+}
+
+.fa-facebook-f,
+.fa-facebook-f:hover {
+  color: #3B5998;
+}
+
+.fa-twitter,
+.fa-twitter:hover {
+  color: #DB4437;
+}
+
+.fa-google,
+.fa-google:hover {
+  color: #00ABF1;
+}
+
+#left-floating-icons {
+
+  a:hover {
+    font-size: large;
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.fa-spinner{
+  color: #FD694D;
+}
+
+.animated{
+    
+    animation-duration: 3s;
+    -webkit-animation-duration: 3s;
+}
+
+@media (max-width : 792px){
+  
+  #left-floating-icons{
+    display: none;
+  }
+
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+.ng-touched.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+label.required::after{
+  content: " *";
+  color: red; /* red */
+}

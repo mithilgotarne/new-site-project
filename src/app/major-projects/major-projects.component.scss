@@ -1,0 +1,14 @@
+.pager{
+    a{
+        color: #FD694D;
+        font-weight: 500;
+        font-size: 1.33em;
+    }
+    .disabled > a{
+        color: #9F9F9F;
+    }
+}
+
+.well:hover{
+    cursor: pointer;
+}

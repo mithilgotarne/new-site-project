@@ -1,11 +1,26 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import './polyfills.ts';
 
-import { AppModule } from './app/app.module';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { enableProdMode } from '@angular/core';
 import { environment } from './environments/environment';
+import * as firebase from 'firebase';
+import { AppModule } from './app/';
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+firebase.initializeApp({
+  apiKey: "AIzaSyAUr2dzwNmpT11i8qnRxnroPGN0BfeNSKE",
+  authDomain: "amit-ghoda.firebaseapp.com",
+  databaseURL: "https://amit-ghoda.firebaseio.com",
+  projectId: "amit-ghoda",
+  storageBucket: "amit-ghoda.appspot.com",
+  messagingSenderId: "873816394205"
+});
+
+platformBrowserDynamic().bootstrapModule(AppModule).then(() => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/worker-basic.min.js');
+  }
+});

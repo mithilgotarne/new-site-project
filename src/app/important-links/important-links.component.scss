@@ -1,0 +1,17 @@
+.container {
+  margin-bottom: 30px;
+}
+
+.well:hover {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  cursor: pointer;
+}
+
+.internal-link::before {
+  content: '| ';
+}
+
+.internal-link a {
+  color: #337ab7;
+}

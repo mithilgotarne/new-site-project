@@ -1,0 +1,88 @@
+footer {
+    background-color: #222;
+    padding-top: 60px;
+    border-top: 4px solid #555;
+    color: #ccc;
+
+    position: relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    a, a:hover{
+      text-decoration: none;
+    }
+
+    h4 {
+    color: #eee;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    position: relative;
+
+  }
+
+  .head-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #333;
+    margin: 0;
+  }
+
+  .copyright-section {
+    padding: 15px 0;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(255,255,255,.06);
+
+    @media(max-width: 425px){
+      text-align: center;
+    }
+  }
+
+  .col-md-4{
+    margin-bottom: 40px;
+  }
+}
+
+ul.social-icons li a i {
+    font-size: 1.1em;
+    width: 36px;
+    height: 36px;
+    color: #fff;
+    line-height: 36px;
+    text-align: center;
+    display: block;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+i.fa-facebook-f:hover {
+  background-color: #3B5998;
+}
+
+i.fa-twitter:hover {
+  background-color: #DB4437;
+}
+
+i.fa-google:hover {
+  background-color: #00ABF1;
+}
+
+ @media(max-width: 425px){
+   .col-sm-6.text-right{
+        text-align: center;
+    }
+ }

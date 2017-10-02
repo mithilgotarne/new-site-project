@@ -1,0 +1,135 @@
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+    <mg-page-header [title]="title"></mg-page-header>
+    <form class="form-horizontal" (ngSubmit)="onSubmit()" #complaintForm="ngForm">
+      <div class="form-group">
+
+        <div class="col-md-12">
+
+          <div class="alert alert-warning">
+
+            आपण सकाळी 9 ते रात्र 9 पर्यंत तक्रार करू शकता
+            <br> Note: You can post complaint from 9AM to 9PM
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="form-group">
+        <div class="col-md-12">
+
+          <label class="required" for="subject">विषय (Subject)</label>
+          <input type="text" class="form-control" id="subject" required [(ngModel)]="complaint.subject" name="subject" #subject="ngModel">
+          <div [hidden]="subject.valid || subject.pristine" class="alert alert-danger">
+            विषय आवश्यक आहे (Subject is required)
+          </div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-12">
+          <label for="description" class="required">वर्णन (Description)</label>
+          <textarea class="form-control" id="description" rows="5" required [(ngModel)]="complaint.description" name="description"
+            #description="ngModel"></textarea>
+          <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+            वर्णन आवश्यक आहे (Description is required)
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-6">
+          <label for="contact-no" class="required">संपर्क क्रमांक (Contact Number)</label>
+          <input class="form-control" id="contact-no" type="text" pattern="^\d{10}$" required [(ngModel)]="complaint.contactNo" name="contact-no"
+            #contactNo="ngModel">
+          <div [hidden]="contactNo.valid || contactNo.pristine" class="alert alert-danger">
+            अवैध नंबर, दहा अंकी असणे आवश्यक आहे ( Invalid number, must be ten digits )
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <label for="email">ई-मेल (Email)</label>
+          <input class="form-control" id="email" type="email" [(ngModel)]="complaint.email" name="email">
+        </div>
+      </div>
+      <div class="form-group">
+
+        <div class="col-md-12">
+
+          <div class="alert alert-info">
+
+            टीप: <label class="required"></label> चिन्हांकित आवश्यक फील्ड आहेत.
+            <br> Note: <label class="required"></label> marked are required fields.
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="form-group" *ngIf="postSuccess">
+
+        <div class="col-md-12">
+
+          <div class="alert alert-success">
+
+            तक्रार दाखल केली (Congratulations, Complaint Posted Successfully)
+
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="postError">
+
+        <div class="col-md-12">
+
+          <div class="alert alert-danger">
+
+            <ul>
+              <li *ngFor="let w of postError.errors">क्षमस्व, दुसरा मोबाइल नंबर वापरा (Sorry, {{w.message}}.)</li>
+              <li *ngFor="let w of postError.warnings">क्षमस्व, दुसरा मोबाइल नंबर वापरा (Sorry, {{w.message}}.)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!complaintForm.form.valid">सादर (Submit)</button>
+      <button type="button" class="btn btn-default" (click)="newComplaint(); complaintForm.reset()">नवीन तक्रार (New Complaint)</button>
+    </form>
+  </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">OTP Confirmation</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+
+          <label for="code">
+			  SMS द्वारे पाठविलेला OTP प्रविष्ट करा <br>
+			  (Enter OTP sent via SMS)
+		  </label>
+          <input class="form-control" name="code" type="text" #code (keydown)="codeError = false">
+
+        </div>
+        <div class="form-group" *ngIf="codeError">
+
+          <div class="col-md-12">
+
+            <div class="alert alert-danger">
+
+              प्रविष्ट केलेला OTP चुकीचा आहे (OTP entered is incorrect)
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="verify(code.value)">Submit</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

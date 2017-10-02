@@ -1,0 +1,60 @@
+$primary-color : #FD694D;
+.btn{
+  color: white;
+  background-color: $primary-color;
+
+  :hover{
+    color: white;
+    background-color: $primary-color;
+  }
+}
+
+.icons-list{
+    .fa{
+        color: $primary-color;
+    }
+    list-style: none;
+    margin: 0 0 6px 0;
+    padding: 0;
+
+    i{
+        font-size: 14px;
+        margin-right: 4px;
+    }
+}
+
+.classic-title{
+
+    font-weight: 400;
+    padding-bottom: 16px;
+
+    span{
+        padding-bottom: 8px;
+        border-bottom: 1px solid $primary-color;
+    }
+
+}
+
+.container-fluid{
+    padding-top: 30px ;
+    background-color: white;
+
+    .row {
+        padding-bottom: 30px;
+        
+        @media(min-width: 786px){
+            padding: 0 15%;
+            background-image: url('/assets/images/flag.jpg'), url('/assets/images/flag.jpg');
+            background-size: 14% 100vh, 14% 100vh ;
+            background-position-x: 10px, 98%;
+            background-repeat: no-repeat, no-repeat;
+        }
+    }
+}
+
+.parallax{
+    margin-top: -20px;
+    height: 70vh;
+    background:url('/assets/images/contact/0.jpg') 50% 40px fixed;
+    background-size: cover; 
+}

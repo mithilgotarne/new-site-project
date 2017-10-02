@@ -1,0 +1,45 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-6 col-md-offset-3">
+
+      <div class="jumbotron">
+        <h2>Login</h2>
+        <form>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+					<i class="glyphicon glyphicon-envelope"></i>
+				</span>
+            <input required type="text" class="form-control" placeholder="Email" #email (keyup)="error = false">
+          </div>
+
+          <br>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+					<i class="glyphicon glyphicon-lock"></i>
+				</span>
+            <input required type="password" class="form-control" placeholder="Password" #pass>
+          </div>
+
+          <br>
+
+          <button type="submit" class="btn btn-lg btn-primary btn-block" (click)="signIn(email.value, pass.value)">Sign In</button>
+          <br>
+
+
+        </form>
+
+        <div *ngIf="error" class="alert alert-danger">
+			{{ error }}
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

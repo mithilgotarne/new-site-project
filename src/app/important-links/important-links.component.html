@@ -1,0 +1,39 @@
+<div class="container">
+
+  <div class="row">
+
+    <mg-page-header [title]="title"></mg-page-header>
+
+    <div class="col-md-6 link-container" *ngFor="let link of links">
+
+      <div class="well">
+
+        <div class="row">
+
+          <div class="col-md-6">
+
+            <img [src]="link.img" [attr.alt]="link.title" class="img-responsive img-rounded center-block">
+
+          </div>
+
+          <div class="col-md-6">
+
+            <h4 class="text-center">{{ link.title }}</h4>
+
+            <ul>
+              <li *ngFor="let il of link.ils" class="internal-link">
+                <a href="{{ il.url }}" target="_blank">{{ il.title }}</a>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
