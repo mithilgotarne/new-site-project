@@ -9,6 +9,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SharedModule } from './shared/shared.module';
 import { AdminModule } from './admin/admin.module';
 import { AppRoutingModule } from './app-routing.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    //AngularFireModule.initializeApp(environment.firebase),
+    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],    
   ],
   providers: [],
   bootstrap: [MainComponent]

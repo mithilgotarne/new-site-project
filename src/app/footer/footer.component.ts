@@ -22,8 +22,8 @@ import { InfoService } from '../shared/info.service';
                                     </li>
                                 </ul>
         
-                                <br><br>
-        
+                                <br>
+
                                 <a href="#" class="btn btn-primary">{{ compalint_btn_text }}</a>
                 
                             </div>  

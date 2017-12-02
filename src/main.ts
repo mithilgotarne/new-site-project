@@ -3,7 +3,7 @@ import './polyfills.ts';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
 import { environment } from './environments/environment';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 import { AppModule } from './app/';
 
 if (environment.production) {
@@ -21,6 +21,6 @@ firebase.initializeApp({
 
 platformBrowserDynamic().bootstrapModule(AppModule).then(() => {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/worker-basic.min.js');
+      navigator.serviceWorker.register('/ngsw-worker.js') ;
   }
 });

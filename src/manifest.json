@@ -1,0 +1,16 @@
+{
+    "short_name": "AmitGhoda",
+    "name": "Amit Ghoda Website",
+    "start_url": "/",
+    "theme_color": "#FD694D",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "512x512",
+            "type": "image/x-icon"
+        }
+    ]
+}

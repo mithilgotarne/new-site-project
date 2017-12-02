@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SmsService } from '../shared/sms.service';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-complaint-box',
@@ -24,13 +23,37 @@ export class ComplaintBoxComponent implements OnInit {
     mar: 'तक्रार फॉर्म'
   }
 
-  code: any;
+	recaptchaVerifier = null;
+	confirmationResult = null;
 
-  constructor(private sms: SmsService) { }
+  constructor() { 
+
+		$('.modal').modal({
+			backdrop: 'static',
+			show: false
+		});
+
+		firebase.auth().useDeviceLanguage();
+  }
 
   ngOnInit() {
     this.newComplaint();
+    this.newCap();
   }
+
+  newCap(){
+
+		this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
+			'size': 'invisible',
+			'callback': response => {
+				// reCAPTCHA solved, allow signInWithPhoneNumber.
+				console.log(response);
+				$('#sign-in-button').click(e=> this.onSubmit()).click();
+
+			}
+		});
+		this.recaptchaVerifier.render();
+	}
 
   newComplaint() {
     this.complaint = {
@@ -44,30 +67,35 @@ export class ComplaintBoxComponent implements OnInit {
   onSubmit() {
     this.postSuccess = false;
     this.postError = false;
-    this.code = this.sms.getCode(this.complaint.contactNo);
-    this.sms.send(this.complaint.contactNo, 'Your OTP for posting complaint on amitghoda.com: ' + this.code)
-      .subscribe(res => {
-        if (res.status == "success") {
-          this.codeError = false;
-          console.log(res);
-          $('.modal').modal('show');
-        } else {
-          this.postError = res;
-          console.log(res);
-        }
-      });
-
+    firebase.auth().signInWithPhoneNumber('+91'+this.complaint.contactNo, this.recaptchaVerifier)
+					.then(confirmationResult => {
+            this.codeError = false;
+            console.log(confirmationResult);
+            this.confirmationResult = confirmationResult
+            $('.modal').modal('show');
+          }).catch((error) =>{
+            this.postError = error;
+            console.log(error);
+        });
   }
 
-  verify(code: string) {
+  verify(code: string, form) {
     this.codeError = false;
-    if (this.code == code) {
-      $('.modal').modal('hide');
+    this.confirmationResult.confirm(code).then((result) => {
+		  // User signed in successfully.
+		  //var user = result.user;
+			$('.modal').modal('hide');
       firebase.database().ref('/complaints/').push(this.complaint);
       this.postSuccess = true;
-    } else {
-      this.codeError = true;
-    }
+      this.newComplaint();
+      form.reset();
+      // ...
+		}).catch( (error) =>{
+		// User couldn't sign in (bad verification code?)
+			console.log(error);
+			this.codeError = true;
+		// ...
+		});
   }
 
 }

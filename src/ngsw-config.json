@@ -1,0 +1,62 @@
+{
+  "index": "/index.html",
+  "assetGroups": [{
+    "name": "app",
+    "installMode": "prefetch",
+    "resources": {
+      "files": [
+        "/index.html"
+      ],
+      "versionedFiles": [
+        "/*.bundle.css",
+        "/*.bundle.js",
+        "/*.chunk.js"
+      ]
+    }
+  }, {
+    "name": "assets",
+    "installMode": "lazy",
+    "updateMode": "prefetch",
+    "resources": {
+      "files": [
+        "/assets/**"
+      ]
+    }
+  }, {
+    "name": "fonts",
+    "resources": {
+      "urls": [
+        "https://maxcdn.bootstrapcdn.com/**",
+        "https://ajax.googleapis.com/**"
+      ]
+    }
+  }],
+  "dataGroups": [{
+    "name": "api-freshness",
+    "urls": [
+      "/social-initiatives"
+    ],
+    "cacheConfig": {
+      "maxSize": 100,
+      "maxAge": "1h",
+      "timeout": "10s",
+      "strategy": "freshness"
+    }
+  }, {
+    "name": "api-performance",
+    "urls": [
+      "/",
+      "/about",
+      "/gallery",
+      "/contact",
+      "/register",
+      "/complaint-box",
+      "/important-links"
+    ],
+    "cacheConfig": {
+      "maxSize": 100,
+      "maxAge": "1d",
+      "strategy": "performance"
+    }
+  }]
+}

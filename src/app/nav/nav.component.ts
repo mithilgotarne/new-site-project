@@ -24,7 +24,7 @@ declare var $: any;
 
                 <div id="navbar" class="collapse navbar-collapse">
 
-                    <ul class="nav navbar-nav navbar-right" id="right-menu">
+                    <ul class="nav navbar-nav navbar-left" id="right-menu">
 
                         <li [class.active]="isActive('')">
                             <a [routerLink]="['/']">{{nav.home[lang]}}</a>
@@ -42,7 +42,15 @@ declare var $: any;
                             <a [routerLink]="['/gallery']">{{nav.gallery[lang]}}</a>
                         </li>
                         
-                        <li class="dropdown">
+                        <li [class.active]="isActive('important-links')">
+                            <a [routerLink]="['/important-links']" >{{nav.important_links[lang]}}</a>
+                        </li>
+
+                        <li [class.active]="isActive('contact')">
+                                <a [routerLink]="['/contact']">{{nav.contact[lang]}}</a>
+                        </li>
+                        
+                        <!--li class="dropdown">
                           <a href="#" class="dropdown-toggle" 
                           data-toggle="dropdown" role="button" 
                           aria-haspopup="true" aria-expanded="false">
@@ -50,24 +58,24 @@ declare var $: any;
                           </a>
                           <ul class="dropdown-menu">
 
-                            <li [class.active]="isActive('contact')">
-                                <a [routerLink]="['/contact']">{{nav.contact[lang]}}</a>
-                            </li>
-
-                            <li [class.active]="isActive('register')">
-                                <a [routerLink]="['/register']" >{{nav.register[lang]}}</a>
-                            </li> 
-
-                            <li [class.active]="isActive('complaint-box')">
-                                <a [routerLink]="['/complaint-box']" >{{nav.complaint_box[lang]}}</a>
-                            </li> 
-
-                            <li [class.active]="isActive('important-links')">
-                                <a [routerLink]="['/important-links']" >{{nav.important_links[lang]}}</a>
-                            </li> 
+                             
 
                           </ul>
-                        </li>
+                        </li-->
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        
+                        <li style="padding-right: 4px">
+                            <button class="btn btn-success navbar-btn"
+                            [routerLink]="['/register']" >{{nav.register[lang]}}</button>
+                        </li> 
+                        
+                        <li>
+                            <button class="btn btn-danger navbar-btn"
+                            [routerLink]="['/complaint-box']" >{{nav.complaint_box[lang]}}</button>
+                        </li> 
+                        
 
                         <li>
                             <select class="form-control" #language (change)="changeLang(language.value)">
