@@ -15,9 +15,9 @@
     height: 90px;
     overflow: hidden;
     font-size: 16px !important;
-    transition: all 0.3s;
     margin-bottom: 10px;
   }
+  transition: transform 0.3s;
 
 }
 
@@ -28,4 +28,5 @@
   }
   transform: scale(1.05);
   -webkit-transform: scale(1.05);
+
 }
