@@ -11,7 +11,7 @@ export class ImportantLinksComponent implements OnInit {
   links = [];
   title = {
      eng: 'Important Links',
-    mar: 'महत्वाची संकेतस्थळ'
+    mar: 'महत्वाची संकेतस्थळं'
   };
 
   constructor(private is: InfoService) { }

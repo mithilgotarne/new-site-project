@@ -20,11 +20,17 @@ export class FacebookService {
     }
 
     getPosts() {
+        return this.getPostsWithLimit(15);
+    }
+
+    getPostsWithLimit(limit: number){
+
         return this._http
             .get(FacebookService.BASE_URL + '/' + FacebookService.PAGE_ID + '/posts'
-            + FacebookService.FIELDS + 'attachments{subattachments},created_time,message&limit=15'
+            + FacebookService.FIELDS + 'attachments{subattachments},created_time,message&limit='+limit
             + FacebookService.ACCESS_TOKEN)
             .map(res => res.json());
+
     }
 
     getData(url) {

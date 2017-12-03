@@ -34,7 +34,7 @@ declare var $: any;
                   
                   <div class="col-sm-6 col-md-8">
                       <h3>{{ p.created_time | date:'d MMMM, y' }} at {{p.created_time | date:'hh:mm a'}}</h3>
-                      <p [innerHTML]="p.message"></p>
+                      <p *ngIf="p.message">{{ p.message.length > 500 ? (p.message | slice:0:497)+'...' : p.message }}</p>
                       <a class="btn btn-primary">{{readMore[lang]}}</a>
                   </div>
 

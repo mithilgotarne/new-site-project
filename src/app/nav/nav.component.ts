@@ -155,7 +155,7 @@ export class NavComponent implements OnInit {
         },
         important_links: {
             eng: 'Important Links',
-            mar: 'महत्वाची संकेतस्थळ'
+            mar: 'महत्वाची संकेतस्थळं'
         }
     };
 

@@ -49,6 +49,11 @@ export class AboutComponent {
 
  @Input() abouts = [];
 
+ title = {
+            eng: 'About',
+            mar: 'माझ्याबद्दल'
+    }
+
     constructor(private router:Router) {
     }
 

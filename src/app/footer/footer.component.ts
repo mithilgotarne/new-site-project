@@ -15,7 +15,7 @@ import { InfoService } from '../shared/info.service';
                             
                              <div class="col-xs-6" [style.marginBottom]="'45px'">
         
-                                <h4>Follow Us<span class="head-line"></span></h4>
+                                <h4><span style="color: #FD694D">Follow</span> Us<span class="head-line"></span></h4>
                                 <ul class="social-icons">
                                     <li *ngFor="let s of social">
                                         <a target="_blank" [attr.href]="s.url"><i class="fa" [ngClass]="s.icon"></i></a>
@@ -117,7 +117,7 @@ export class FooterComponent implements OnInit {
     },
     {
         eng: 'Important Links',
-        mar: 'महत्वाची संकेतस्थळ',
+        mar: 'महत्वाची संकेतस्थळं',
         url: '/important-links'
     }
     ]

@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="container">
+    <div class="page-header" style="margin-top: 0">
+        <h3 style="margin-top: 0;"><a [routerLink]="['/social-initiatives']" [innerHTML]="title[lang]"></a></h3>
+    </div>
+    <div class="col-sm-6 col-md-4" *ngFor="let p of posts" [routerLink]="['/social-initiatives', p.id]">
+      <div class="thumbnail box">
+        <img [src]="p['src']" alt="...">
+        <div class="caption">
+          <p style="font-size: 16px">{{ p.message.length > 201 ? (p.message | slice:0:199)+'...' : p.message }}
+            <a [routerLink]="['/social-initiatives', p.id]" class="primary-color">{{ readMore[lang] }}>></a>
+          </p>
+          <p align="right">{{ p.created_time | date:'d MMMM, y' }} at {{p.created_time | date:'hh:mm a'}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

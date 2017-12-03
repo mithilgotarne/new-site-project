@@ -33,10 +33,6 @@ a:hover,
   background-color: transparent;
 }
 
-.primary-color{
-  color: #FD694D;
-}
-
 .container{
   max-width: 970px;
 }
@@ -206,4 +202,12 @@ a.btn-primary:hover, a.btn-primary:active, a.btn-primary:focus,
 label.required::after{
   content: " *";
   color: red; /* red */
+}
+
+a.primary-color, .primary-color{
+  color: #FD694D;
+}
+
+.page-header{
+  border-bottom-color: #ddd;
 }

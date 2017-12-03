@@ -1,0 +1,12 @@
+.box{
+    transition: box-shadow .3s;
+    cursor: pointer;
+}
+
+.box:hover {
+  box-shadow: 0 0 14px rgba(33,33,33,.4); 
+}
+
+h3 > a, h3 > a:link{
+    text-decoration: none;
+}

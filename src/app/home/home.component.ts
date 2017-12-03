@@ -14,6 +14,7 @@ declare var $:any;
           <mg-slider [slides]="slides"></mg-slider>
         </div>
         <mg-about [abouts]="abouts"></mg-about>
+        <app-home-posts></app-home-posts>  
     </div>
   `,
   styleUrls : ['./home.component.scss'],
@@ -41,15 +42,15 @@ export class HomeComponent implements OnInit {
   abouts = [];
   slides = [];
   state : string = "state";
-
-  constructor(private _info: InfoService) {}
+  
+  constructor(private _info: InfoService,) {}
 
   ngOnInit() {
     window.scrollTo(0,0);
 
       Observable.forkJoin(
         this._info.getSlides(),
-        this._info.getAbouts()
+        this._info.getAbouts(),
         ).subscribe(
           response => {
             this.slides = response[0];
