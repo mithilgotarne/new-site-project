@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
 	numberExists = false;
 	recaptchaVerifier = null;
 	confirmationResult = null;
+	loading = false;
 
 	constructor() {
 
@@ -64,12 +65,14 @@ export class RegisterComponent implements OnInit {
 		this.registerSuccess = false;
 		this.numberExists = false;
 		this.registerError = false;
+		this.loading = true;
 		firebase.database().ref('/users/' + this.member.number).once('value')
 			.then(snapshot => {
 				console.log(snapshot);
 				if (snapshot.val()) {
 					this.numberExists = true;
 					alert("क्षमस्व, मोबाइल नंबर आधीच नोंदणीकृत आहे \n(Sorry, Mobile Number already registered)");
+					this.loading = false;
 				} else {
 					firebase.auth().signInWithPhoneNumber('+91'+this.member.number, this.recaptchaVerifier)
 					.then(confirmationResult => {
@@ -77,6 +80,7 @@ export class RegisterComponent implements OnInit {
 					// user in with confirmationResult.confirm(code).
 						console.log(confirmationResult);
 						this.confirmationResult = confirmationResult;
+						this.loading = false;
 						this.codeError = false;
 						$('.modal').modal('show');
 
@@ -84,6 +88,7 @@ export class RegisterComponent implements OnInit {
 					// Error; SMS not sent
 					// ...
 						console.log(error);
+						this.loading = false;
 						this.registerError = error;
 					});
 				}
@@ -92,6 +97,7 @@ export class RegisterComponent implements OnInit {
 
 	verify(code: string, form) {
 		this.codeError = false;
+		this.loading = true;
 		if(!this.confirmationResult) return;
 		this.confirmationResult.confirm(code).then( (result) => {
 		// User signed in successfully.
@@ -99,6 +105,7 @@ export class RegisterComponent implements OnInit {
 			$('.modal').modal('hide');
 		 	firebase.database().ref('/users/' + this.member.number).set(this.member);
 		 	this.registerSuccess = true;
+			this.loading = false;
 			this.newMember();
 			form.reset();
 		// ...
@@ -106,6 +113,7 @@ export class RegisterComponent implements OnInit {
 		// User couldn't sign in (bad verification code?)
 			console.log(error);
 			this.codeError = true;
+			this.loading = false;
 		// ...
 		});
 	}
