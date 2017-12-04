@@ -1,5 +1,6 @@
 $primaryColor: #FD694D;
 
+
 li:hover, li.active {
 
   border-bottom: 1px solid $primaryColor;
@@ -22,16 +23,22 @@ img{
 
 .container-fluid{
   padding: 0 5%;
+  margin-top: -20px;
+  height: 100%;
+
+  .row{
+    padding-top: 30px;
+  }
 
   @media (min-width: 1325px){
-      padding-left: 15%;
-      padding-bottom: 30px;
-      background-color: white;
-      background-image: url('/assets/images/flag.jpg');
-      background-size: 14% 100vh;
-      background-position-y: 70px;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+      // padding-left: 15%;
+      // padding-bottom: 30px;
+      //background-color: white;
+      // background-image: url('/assets/images/flag.jpg');
+      // background-size: 14% 100vh;
+      // background-position-y: 70px;
+      // background-repeat: no-repeat;
+      // background-attachment: fixed;
   }
 
 

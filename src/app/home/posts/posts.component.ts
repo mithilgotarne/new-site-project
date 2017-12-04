@@ -4,7 +4,7 @@ import { FacebookService } from '../../shared/facebook.service';
 @Component({
   selector: 'app-home-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.css']
+  styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
 
@@ -24,10 +24,11 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
           this.lang = window.localStorage.getItem('lang') || 'mar';
           this.getProjects();
+          this.initSlider();
   }
 
   getProjects() {
-        this.fb.getPostsWithLimit(10).subscribe(
+        this.fb.getPostsWithLimit(20).subscribe(
             projects => { this.posts = projects.data},
             null,
             () => this.processProjects()
@@ -50,12 +51,31 @@ export class PostsComponent implements OnInit {
                 p['attachments'] = null
                 p['src'] = src;
                 proj.push(p);
-                if(proj.length>2)
+                if(proj.length==6)
                   break;
             }
         }
         this.posts = proj;
+        this.initSlider();
         console.log(this.posts);        
+  }
+
+  private initSlider(){
+    // Instantiate the Bootstrap carousel
+    let newProj = [], l=this.posts.length;
+    for(let i=0; i<l; i++){
+        let j = []
+        j.push(this.posts[i])
+        j.push(this.posts[(i+1)%l])
+        j.push(this.posts[(i+2)%l])
+        newProj.push(j)
+    }
+    this.posts = newProj
+
+    $('.multi-item-carousel').carousel({
+        interval: 3000
+    });
+
   }
 
 }

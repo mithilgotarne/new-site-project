@@ -8,7 +8,7 @@ declare var $: any;
 @Component({
     selector: 'mg-photos',
     template: `
-    <div class="container">
+    <div class="container body-container">
         
         <div class="page-header" style="margin-top: 0">
             <h1 style="margin-top: 0" [innerHTML]="title[lang]"></h1>
@@ -50,6 +50,10 @@ declare var $: any;
         cursor: pointer;
     }
 
+    .container{
+        padding-top: 20px;
+        margin-top: -20px;
+    }
   
   `],
     providers: [FacebookService, InfoService],

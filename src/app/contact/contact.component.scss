@@ -35,19 +35,18 @@ $primary-color : #FD694D;
 
 }
 
-.container-fluid{
-    padding-top: 30px ;
-    background-color: white;
+.container{
+    //background-color: white;
 
     .row {
-        padding-bottom: 30px;
-        
+        padding-top: 30px;
+        background-color: white;
         @media(min-width: 786px){
-            padding: 0 15%;
-            background-image: url('/assets/images/flag.jpg'), url('/assets/images/flag.jpg');
-            background-size: 14% 100vh, 14% 100vh ;
-            background-position-x: 10px, 98%;
-            background-repeat: no-repeat, no-repeat;
+            padding: 30px 0;
+            // background-image: url('/assets/images/flag.jpg'), url('/assets/images/flag.jpg');
+            // background-size: 14% 100vh, 14% 100vh ;
+            // background-position-x: 10px, 98%;
+            // background-repeat: no-repeat, no-repeat;
         }
     }
 }

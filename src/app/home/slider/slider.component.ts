@@ -7,7 +7,7 @@ declare var $: any;
     template: `
   <div class="row">
 
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <div id="carousel-example-generic" class="carousel" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#carousel-example-generic"
@@ -47,9 +47,10 @@ export class SliderComponent {
     @Input() slides: any = [];
 
     ngOnInit() {
-        setTimeout(() => {
-            $('.carousel').carousel();
-        }, 5000);
+    
+            $('#carousel-example-generic').carousel({
+                interval: 2000
+            });
     }
 
     isActive(slide) {

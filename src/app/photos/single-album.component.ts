@@ -21,7 +21,7 @@ declare var $: any;
         </div>
     </div>
 
-    <div class="container animatedParent">
+    <div class="container body-container">
         
         <div *ngIf="!isLoading" class="page-header" style="margin-top: 0">
             <h2 style="margin-top: 0">

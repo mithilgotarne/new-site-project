@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'mg-about',
   template: `
-  <div class="row center paddingBottom">
+  <div class="row center">
 
-    <div class="container marginTop" id="aboutRow">
+    <div class="container paddingTop paddingBottom body-container end-divider" id="aboutRow">
 
         <div *ngFor="let item of abouts" [@bounceInUp]="'true'"
              (click)="onClick(item.id)"

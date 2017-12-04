@@ -12,3 +12,13 @@
 .well:hover{
     cursor: pointer;
 }
+
+.container{
+    padding-top: 20px;
+    margin-top: -20px;
+
+    .well{
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

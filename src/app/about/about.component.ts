@@ -1,4 +1,4 @@
-import { Component, OnInit, trigger, style, state, transition, animate, keyframes } from '@angular/core';
+import { Component, OnInit, OnDestroy,trigger, style, state, transition, animate, keyframes } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { InfoService } from '../shared/info.service';
 declare var $: any;
@@ -8,7 +8,7 @@ declare var $: any;
     template: `
      <div class="container-fluid">
 
-        <div class="row">
+        <div class="row body-container" id="about-container">
 
             <!-- Nav tabs -->
                 <ul class="nav nav-stacked col-md-2" role="tablist">
@@ -65,7 +65,8 @@ declare var $: any;
         ])
     ]
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent implements OnInit, OnDestroy {
+    
 
     abouts = [];
     activeId = '';
@@ -76,6 +77,9 @@ export class AboutComponent implements OnInit {
 
     ngOnInit() {
         window.scrollTo(0, 0);
+        //$('#about-container').css('min-height', ($('.content').height()+20)+'px');
+        $('body').addClass('body-container').removeClass('body-bg');
+        $('#footer-top').addClass('container-fluid').removeClass('container');
         this._info.getAbouts().subscribe(
             abouts => this.abouts = abouts,
             null,
@@ -84,6 +88,14 @@ export class AboutComponent implements OnInit {
                 $(window).scroll();
             }
         );
+    }
+
+    ngOnDestroy(): void {
+        $('#footer-top').addClass('container').removeClass('container-fluid');
+        $('body').removeClass('body-container').addClass('body-bg');
+        //$('body').css('background-color', '#');
+        //$('#about-container').css('min-height', '0px');
+        //console.log("called")
     }
 
     onClick(id: string) {

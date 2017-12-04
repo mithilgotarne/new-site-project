@@ -1,0 +1,17 @@
+<mg-nav [firstName]="firstname" [lastName]="lastname"></mg-nav>
+
+    <nav class="navbar navbar-fixed-top" id="left-floating-icons">
+        <ul class="nav nav-stacked animatedParent" data-sequence="500">
+          <li class="animated fadeInRight" *ngFor="let s of social let i = index" data-id="i" >
+              <a target="_blank" [attr.href]="s.url"><i class="fa fa-2x" [ngClass]="s.icon"></i></a>
+          </li>
+        </ul>
+    </nav>
+
+    <main>
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+
+<mg-footer [social]="social"></mg-footer>

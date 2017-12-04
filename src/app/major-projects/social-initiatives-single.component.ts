@@ -6,7 +6,7 @@ declare var $: any;
 @Component({
     selector: 'mg-social-initiatives-single',
     template: `
-      <div class="container animatedParent">
+      <div class="container body-container">
                     
             <div class="page-header" style="margin-top: 0">
                 <h2 style="margin-top: 0">
@@ -44,6 +44,10 @@ declare var $: any;
                 font-size: 1.5em;
             }
 
+        }
+        .container{
+            margin-top: -20px;
+            padding-top: 20px;
         }
       `
     ],

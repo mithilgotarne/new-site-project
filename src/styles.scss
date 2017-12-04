@@ -6,13 +6,13 @@ body{
 }
 
 @media (min-width: 1325px){
-    body{
-        background-image: url('assets/images/flag.jpg'), url('assets/images/flag.jpg');
-        background-size: 14% 100vh, 14% 100vh ;
-        background-position: 0px 70px, 101% 70px;
-        background-repeat: no-repeat, no-repeat;
-        background-attachment: fixed, fixed;
-    }
+    // body{
+    //     background-image: url('assets/images/flag.jpg'), url('assets/images/flag.jpg');
+    //     background-size: 14% 100vh, 14% 100vh ;
+    //     background-position: 0px 70px, 101% 70px;
+    //     background-repeat: no-repeat, no-repeat;
+    //     background-attachment: fixed, fixed;
+    // }
 }
 
 p {
@@ -51,6 +51,10 @@ a:hover,
 
 .marginTop {
   margin-top: 30px;
+}
+
+.paddingTop {
+  padding-top: 30px;
 }
 
 .paddingBottom {
@@ -210,4 +214,16 @@ a.primary-color, .primary-color{
 
 .page-header{
   border-bottom-color: #ddd;
+}
+
+.end-divider{
+  border-bottom: 4px solid #FA6103;
+}
+
+.end-divider-color{
+  background-color: #FA6103;
+}
+
+.body-bg{
+  background-color: #FCE6BB;
 }

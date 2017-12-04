@@ -8,7 +8,7 @@ declare var $: any;
 @Component({
     selector: 'mg-major-projects',
     template: `
-      <div class="container">
+      <div class="container body-container">
                     
             <div class="page-header" style="margin-top: 0">
                 <h2 style="margin-top: 0" [innerHTML]="title[lang]"></h2>
