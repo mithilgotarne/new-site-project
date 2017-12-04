@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from "@angular/router";
 
 @Component({
@@ -40,13 +40,13 @@ import { Router } from "@angular/router";
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _auth: AngularFireAuth) { }
 
   ngOnInit() {
   }
 
   logout(){
-    firebase.auth().signOut();
+    this._auth.auth.signOut();
     this.router.navigate(['login']);
 
   }

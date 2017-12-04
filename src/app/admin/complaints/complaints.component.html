@@ -9,14 +9,16 @@
         <th>Description</th>
         <th>Phone No.</th>
         <th>Mail</th>
+        <th>Location</th>
       </tr>
 
-      <tr *ngFor="let c of complaints; let i = index">
+      <tr *ngFor="let c of complaints|async; let i = index">
         <td>{{ i+1 }}</td>
         <td>{{ c.subject }}</td>
         <td>{{ c.description }}</td>
         <td>{{ c.contactNo }}</td>
-        <td>{{ c.email }}</td>
+        <td>{{ c.email.length>0?c.email:'N/A' }}</td>
+        <td>{{ c.user_metadata.city }}</td>
       </tr>
 
     </table>

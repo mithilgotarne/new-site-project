@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+
 declare var $: any;
 
 @Component({
@@ -23,14 +26,15 @@ export class RegisterComponent implements OnInit {
 	confirmationResult = null;
 	loading = false;
 
-	constructor() {
+	constructor(private _auth: AngularFireAuth, private _db: AngularFireDatabase) {
 
 		$('.modal').modal({
 			backdrop: 'static',
 			show: false
 		});
 
-		firebase.auth().useDeviceLanguage();
+		_auth.auth.languageCode = localStorage.getItem('lang') && localStorage.getItem('lang') == 'eng' ? 'en': 'mr';
+
 	}
 
 	ngOnInit() {
@@ -66,7 +70,7 @@ export class RegisterComponent implements OnInit {
 		this.numberExists = false;
 		this.registerError = false;
 		this.loading = true;
-		firebase.database().ref('/users/' + this.member.number).once('value')
+		this._db.database.ref('/users/' + this.member.number).once('value')
 			.then(snapshot => {
 				console.log(snapshot);
 				if (snapshot.val()) {
@@ -74,7 +78,7 @@ export class RegisterComponent implements OnInit {
 					alert("क्षमस्व, मोबाइल नंबर आधीच नोंदणीकृत आहे \n(Sorry, Mobile Number already registered)");
 					this.loading = false;
 				} else {
-					firebase.auth().signInWithPhoneNumber('+91'+this.member.number, this.recaptchaVerifier)
+					this._auth.auth.signInWithPhoneNumber('+91'+this.member.number, this.recaptchaVerifier)
 					.then(confirmationResult => {
 					// SMS sent. Prompt user to type the code from the message, then sign the
 					// user in with confirmationResult.confirm(code).
@@ -103,7 +107,7 @@ export class RegisterComponent implements OnInit {
 		// User signed in successfully.
 		//var user = result.user;
 			$('.modal').modal('hide');
-		 	firebase.database().ref('/users/' + this.member.number).set(this.member);
+		 	this._db.database.ref('/users/' + this.member.number).set(this.member);
 		 	this.registerSuccess = true;
 			this.loading = false;
 			this.newMember();

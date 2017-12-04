@@ -26,7 +26,9 @@
 
           <br>
 
-          <button type="submit" class="btn btn-lg btn-primary btn-block" (click)="signIn(email.value, pass.value)">Sign In</button>
+          <button type="submit" [disabled]="loading" class="btn btn-lg btn-primary btn-block" (click)="signIn(email.value, pass.value)">
+            Sign In <i *ngIf="loading" class="fa fa-spinner fa-pulse fa-fw "></i><span class="sr-only">Loading...</span>
+          </button>
           <br>
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,17 +11,20 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   error: any;
-
-  constructor(private router: Router) { }
+  loading = false;
+  constructor(private router: Router, private auth: AngularFireAuth) { }
 
   ngOnInit() {
   }
 
   signIn(email: string, pass: string) {
-    firebase.auth().signInWithEmailAndPassword(email, pass).then(() => {
+    this.loading = true;
+    this.auth.auth.signInWithEmailAndPassword(email, pass).then(() => {
       this.router.navigateByUrl('/admin');
+      this.loading = false;
     }).catch(error => {
       this.error = error.message;
+      this.loading = false;
     })
   }
 

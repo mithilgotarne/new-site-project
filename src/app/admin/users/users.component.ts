@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
+
 
 @Component({
   selector: 'app-users',
@@ -8,11 +10,9 @@ import * as firebase from 'firebase';
 })
 export class UsersComponent implements OnInit {
 
-  users = []
-  constructor() {
-    firebase.database().ref('/users').on('child_added', snap => {
-      this.users.push(snap.val())
-    });
+  users: Observable<any[]>
+  constructor(private _db: AngularFireDatabase) {
+    this.users = _db.list('/users').valueChanges();
   }
 
   ngOnInit() {

@@ -1,41 +1,39 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanActivateChild, CanLoad, ActivatedRouteSnapshot, RouterStateSnapshot, Router, Route } from '@angular/router';
-import * as firebase from 'firebase';
-import { Observable } from "rxjs/Observable";
+import { CanActivate, CanActivateChild, CanLoad, ActivatedRouteSnapshot, RouterStateSnapshot, Router, Route} from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { User } from 'firebase/app/';
+import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
 
 @Injectable()
-export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
-  private isLoggedIn: any;
+export class AuthGuard implements CanActivate ,CanActivateChild, CanLoad{
 
-  canLoad(route: Route): boolean | Observable<boolean> | Promise<boolean> {
-    if (!this.isLoggedIn)
-      this.router.navigate(['/login']);
-    return this.isLoggedIn;
-  }
+  constructor(private afAuth: AngularFireAuth, private router: Router) {}
 
-  constructor(private router: Router) {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        this.isLoggedIn = true;
-      }
-      else {
-        this.isLoggedIn = false;
-      }
-    });
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+      return this.check()      
+   }
+
+   canLoad(route: Route): boolean | Observable<boolean> | Promise<boolean> {
+    return this.check()
   }
 
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
     return this.canActivate(childRoute, state);
   }
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (!this.isLoggedIn)
-      this.router.navigate(['/login']);
-    return this.isLoggedIn;
+  private check(){
+    return this.afAuth.authState
+       .take(1)
+       .map(user => user.providerData[0].providerId === "password")
+       .do(loggedIn => {
+         if (!loggedIn) {
+           console.log("access denied")
+           this.router.navigate(['/login']);
+         }
+     })
   }
 
 }

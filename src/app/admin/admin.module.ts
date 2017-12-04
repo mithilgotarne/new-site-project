@@ -5,6 +5,8 @@ import { UsersComponent } from './users/users.component';
 import { ComplaintsComponent } from './complaints/complaints.component';
 import { AdminComponent } from './admin.component';
 import { AuthGuard } from '../shared/auth.guard'
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 const routes: Routes = [
   {
@@ -25,7 +27,9 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   providers: [AuthGuard],
   declarations: [AdminComponent, UsersComponent, ComplaintsComponent]

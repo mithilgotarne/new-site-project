@@ -7,9 +7,10 @@ import { MainComponent } from './main.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { SharedModule } from './shared/shared.module';
-import { AdminModule } from './admin/admin.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth'; 
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -25,7 +26,8 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
-    //AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],    
   ],
   providers: [],

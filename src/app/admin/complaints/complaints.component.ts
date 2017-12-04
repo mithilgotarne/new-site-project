@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
+
 @Component({
   selector: 'app-complaints',
   templateUrl: './complaints.component.html',
@@ -7,11 +9,9 @@ import * as firebase from 'firebase';
 })
 export class ComplaintsComponent implements OnInit {
 
-  complaints = []
-  constructor() {
-    firebase.database().ref('/complaints').on('child_added', snap => {
-      this.complaints.push(snap.val())
-    });
+  complaints:Observable<any[]>
+  constructor(private _db: AngularFireDatabase) {
+    this.complaints = _db.list('/complaints').valueChanges();
   }
 
   ngOnInit() {

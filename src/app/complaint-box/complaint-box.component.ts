@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
 @Component({
@@ -6,6 +8,7 @@ import * as firebase from 'firebase/app';
   templateUrl: './complaint-box.component.html',
   styleUrls: ['./complaint-box.component.scss'],
 })
+
 export class ComplaintBoxComponent implements OnInit {
   postSuccess: boolean;
   postError: any;
@@ -27,14 +30,14 @@ export class ComplaintBoxComponent implements OnInit {
 	recaptchaVerifier = null;
 	confirmationResult = null;
 
-  constructor() { 
+  constructor(private _auth: AngularFireAuth, private _db: AngularFireDatabase) { 
 
 		$('.modal').modal({
 			backdrop: 'static',
 			show: false
 		});
 
-		firebase.auth().useDeviceLanguage();
+		_auth.auth.languageCode = localStorage.getItem('lang') && localStorage.getItem('lang') == 'eng' ? 'en': 'mr';
   }
 
   ngOnInit() {
@@ -69,7 +72,7 @@ export class ComplaintBoxComponent implements OnInit {
     this.postSuccess = false;
     this.postError = false;
     this.loading = true;
-    firebase.auth().signInWithPhoneNumber('+91'+this.complaint.contactNo, this.recaptchaVerifier)
+    this._auth.auth.signInWithPhoneNumber('+91'+this.complaint.contactNo, this.recaptchaVerifier)
 					.then(confirmationResult => {
             this.codeError = false;
             console.log(confirmationResult);
@@ -90,7 +93,8 @@ export class ComplaintBoxComponent implements OnInit {
 		  // User signed in successfully.
 		  //var user = result.user;
 			$('.modal').modal('hide');
-      firebase.database().ref('/complaints/').push(this.complaint);
+      this.complaint['user_metadata']=JSON.parse(localStorage.getItem('user_info'));
+      this._db.database.ref('/complaints/').push(this.complaint);
       this.loading = false;
       this.postSuccess = true;
       this.newComplaint();
