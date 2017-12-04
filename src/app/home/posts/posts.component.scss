@@ -8,11 +8,21 @@
         //left:-33%;
       }
       &.right{
-        left:33%;
+        @media (max-width: 768px){
+          left: 100%;
+        }
+        @media (min-width: 768px){
+            left:33%;
+        }
       }
     }
     .next{
-      left: 33%;
+      @media (max-width: 768px){
+          left: 100%;
+        }
+        @media (min-width: 768px){
+            left:33%;
+        }
     }
     .prev{
       //left: -33%;

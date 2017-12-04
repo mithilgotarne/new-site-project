@@ -8,7 +8,7 @@
       <div class="carousel slide multi-item-carousel" id="theCarousel">
         <div class="carousel-inner">
           <div class="item" [class.active]="i==0" *ngFor="let j of posts; let i = index">
-            <div class="col-xs-4" *ngFor="let p of j" [routerLink]="['/social-initiatives', p.id]">
+            <div class="col-md-4 col-sm-4" *ngFor="let p of j; let k=index" [class.hidden-xs]="k==1 || k==2" [routerLink]="['/social-initiatives', p.id]">
                   <div class="thumbnail box">
                     <img [src]="p['src']" alt="...">
                     <div class="caption">
