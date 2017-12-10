@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-prod-ngsw": "ng build -prod && ./node_modules/.bin/ngsw-config dist ./src/ngsw-manifest.json && cp ./node_modules/@angular/service-worker/ngsw-worker.js ./dist/ngsw-worker.js"
+    "run-prod": "ng build --prod && firebase serve",
+    "deploy": "ng build --prod && firebase deploy"  
   },
   "private": true,
   "dependencies": {

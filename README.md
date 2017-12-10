@@ -1,6 +1,6 @@
 # AmitGhodaSite
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
 
 ## Initial Step
 
@@ -19,10 +19,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 ## Production Run
-Run `./run.sh` shell script
+Run `npm run prod-run` shell script
 
 ## Deploy
-Run `./deploy.sh` shell script
+Run `npm run deploy` shell script
 
 ## Running unit tests
 

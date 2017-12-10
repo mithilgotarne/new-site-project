@@ -13,7 +13,21 @@
         "/*.chunk.js"
       ]
     }
-  }, {
+  },
+  {
+    "name": "assets-prefetch",
+    "installMode": "prefetch",
+    "updateMode": "prefetch",
+    "resources": {
+      "files": [
+        "/assets/images/main-slider/**",
+        "/assets/images/about-me/**",
+        "/assets/images/contact/**",
+        "/assets/images/imp-links/**"
+      ]
+    }
+  },  
+  {
     "name": "assets",
     "installMode": "lazy",
     "updateMode": "prefetch",
