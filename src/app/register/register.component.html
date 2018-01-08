@@ -81,6 +81,48 @@
 
         <div class="form-group">
 
+          <div class="col-xs-5">
+
+            <label for="taluka" class="required">तालुका (Taluka)</label>
+
+          </div>
+
+
+          <div class="col-xs-7">
+            <input class="form-control" type="text" name="taluka" id="taluka" required [(ngModel)]="member.taluka" #taluka="ngModel">
+
+
+          </div>
+
+        </div>
+
+        <div class="alert alert-danger" [hidden]="taluka.valid || taluka.pristine">
+          तालुका आवश्यक आहे ( Taluka is required)
+        </div>
+
+        <div class="form-group">
+
+          <div class="col-xs-5">
+
+            <label for="district" class="required">जिल्हा (District)</label>
+
+          </div>
+
+
+          <div class="col-xs-7">
+            <input class="form-control" type="text" name="district" id="district" required [(ngModel)]="member.district" #district="ngModel">
+
+
+          </div>
+
+        </div>
+
+        <div class="alert alert-danger" [hidden]="district.valid || district.pristine">
+          जिल्हा आवश्यक आहे ( District is required)
+        </div>
+
+        <div class="form-group">
+
           <div class="col-md-12">
 
             <div class="alert alert-info">

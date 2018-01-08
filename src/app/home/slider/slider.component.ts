@@ -7,6 +7,8 @@ declare var $: any;
     template: `
   <div class="row">
 
+    <div class="container body-container end-divider">
+
     <div id="carousel-example-generic" class="carousel" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -19,24 +21,27 @@ declare var $: any;
         <div class="carousel-inner" role="listbox">
 
             <div class="item" *ngFor="let slide of slides"
+                [ngStyle]="{ 'background-image': getUrl(slide.imgUrl) }"
+                style="background-repeat: no-repeat; background-size: contain; background-position: center;"
                  [class.active]="isActive(slide)">
-                <img class="img-responsive center-block" [src]="slide.imgUrl">
-                <div class="carousel-caption">{{slide.caption}}</div>
+
+                <!--img class="img-responsive center-block" [src]="slide.imgUrl"-->
+                <!--div class="carousel-caption">{{slide.caption}}</div-->
             </div>
 
         </div>
 
         <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <!--a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
         <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
-        </a>
+        </a-->
     </div>
-
+  </div>
   </div><!-- /.row -->
   `,
     styleUrls: ['./slider.component.scss'],
@@ -55,5 +60,9 @@ export class SliderComponent {
 
     isActive(slide) {
         return slide === this.slides[0];
+    }
+
+    private getUrl(url){
+        return "url('" + url +  "')";
     }
 }

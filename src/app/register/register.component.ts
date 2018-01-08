@@ -60,7 +60,9 @@ export class RegisterComponent implements OnInit {
 		this.member = {
 			name: '',
 			village: '',
-			number: ''
+			number: '',
+			taluka: '',
+			district: ''
 		}
 	}
 
@@ -107,6 +109,13 @@ export class RegisterComponent implements OnInit {
 		// User signed in successfully.
 		//var user = result.user;
 			$('.modal').modal('hide');
+			let user =JSON.parse(localStorage.getItem('user_info'));
+			if(user){
+				for(let key in user){
+					this.member[key]=user[key]
+				}
+			}
+      		this.member['timestamp']=firebase.database.ServerValue.TIMESTAMP;
 		 	this._db.database.ref('/users/' + this.member.number).set(this.member);
 		 	this.registerSuccess = true;
 			this.loading = false;

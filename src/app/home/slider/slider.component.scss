@@ -1,15 +1,22 @@
-.item{
+$sliderHeight: 85vh;
+$primaryColor: #FD694D;
+
+.body-container{
     background-color: black;
+}
+.carousel-control{
+    background-image: none;
+    color: $primaryColor;
 }
 
 @media (min-width: 768px) {
     .carousel, .carousel-inner {
-        height: 95vh;
+        height: $sliderHeight;
         .item {
-           height: 95vh;
+           height: $sliderHeight;
 
            img{
-               height: 95vh;
+               height: $sliderHeight;
            }
         }
     }

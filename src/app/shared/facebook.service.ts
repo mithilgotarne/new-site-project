@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 
 export class FacebookService {
 
-    private static BASE_URL = 'https://graph.facebook.com/v2.6/';
+    private static BASE_URL = '//graph.facebook.com/v2.6/';
     private static PAGE = 'AmitGhoda.ShivSenaPalgharVidhanSabha';
     private static PAGE_ID = '213483665658521';
     private static FIELDS = '?fields=';

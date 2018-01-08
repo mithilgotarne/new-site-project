@@ -94,6 +94,7 @@ export class ComplaintBoxComponent implements OnInit {
 		  //var user = result.user;
 			$('.modal').modal('hide');
       this.complaint['user_metadata']=JSON.parse(localStorage.getItem('user_info'));
+      this.complaint['timestamp']=firebase.database.ServerValue.TIMESTAMP;
       this._db.database.ref('/complaints/').push(this.complaint);
       this.loading = false;
       this.postSuccess = true;
