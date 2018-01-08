@@ -9,11 +9,6 @@ export class InfoService {
 
   constructor(private _http: Http) {}
 
-  getSocialAccounts(){
-    return this._http.get('assets/data/social.json').map(
-      res => res.json());
-  }
-
   getSlides(){
     return this._http.get('assets/data/slides.json').map(
       res => res.json());
