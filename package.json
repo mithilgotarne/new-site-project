@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "run-prod": "ng build --prod && firebase serve",
-    "deploy": "ng build --prod && firebase deploy"  
+    "deploy": "ng build --prod && firebase deploy"
   },
   "private": true,
   "dependencies": {
@@ -51,6 +51,6 @@
     "protractor": "~5.2.0",
     "ts-node": "~3.3.0",
     "tslint": "~5.8.0",
-    "typescript": "^2.4.1"
+    "typescript": "^2.4.2"
   }
 }
