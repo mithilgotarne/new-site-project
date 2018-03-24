@@ -1,64 +1,53 @@
 $primaryColor: #FD694D;
-
-
-li:hover, li.active {
-
+li:hover,
+li.active {
   border-bottom: 1px solid $primaryColor;
-
-  a{
+  a {
     color: $primaryColor;
     background-color: transparent;
   }
 }
 
-li.active{
-  a{
+li.active {
+  a {
     font-size: 1.3em;
   }
 }
 
-img{
+img {
   margin: 15px;
 }
 
-.container-fluid{
+.container-fluid {
   padding: 0 5%;
   margin-top: -20px;
   height: 100%;
-
-  .row{
+  .row {
     padding-top: 30px;
   }
-
-  @media (min-width: 1325px){
-      // padding-left: 15%;
-      // padding-bottom: 30px;
-      //background-color: white;
-      // background-image: url('/assets/images/flag.jpg');
-      // background-size: 14% 100vh;
-      // background-position-y: 70px;
-      // background-repeat: no-repeat;
-      // background-attachment: fixed;
+  @media (min-width: 1325px) {
+    // padding-left: 15%;
+    // padding-bottom: 30px;
+    //background-color: white;
+    // background-image: url('/assets/images/flag.jpg');
+    // background-size: 14% 100vh;
+    // background-position-y: 70px;
+    // background-repeat: no-repeat;
+    // background-attachment: fixed;
   }
-
-
 }
 
 @media (max-width: 992px) {
-
-    .nav{
-        margin-bottom: 10px;
-        display: inline-flex;
-        width: 100%;
-
-        li{
-            width: 33.33%;
-
-            a{
-              font-size: 1.3em;
-              text-align: center;
-            }
-        }  
+  .nav {
+    margin-bottom: 10px;
+    display: inline-flex;
+    width: 100%;
+    li {
+      width: 33.33%;
+      a {
+        font-size: 1.3em;
+        text-align: center;
+      }
     }
+  }
 }
-
