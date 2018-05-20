@@ -8,26 +8,26 @@ declare var $: any;
 @Component({
   selector: 'mg-root',
   templateUrl: './app.component.html',
-  styleUrls:['./app.component.scss']
+  styleUrls: ['./app.component.scss']
 })
 
 export class AppComponent implements OnInit {
 
-  firstname = {mar : 'अमित', eng: 'Amit'};
-  lastname = {mar: 'घोडा', eng: 'Ghoda'};
+  firstname = { mar: 'अमित', eng: 'Amit' };
+  lastname = { mar: 'घोडा', eng: 'Ghoda' };
   social = [
     {
-        "url":"https://www.facebook.com/AmitGhoda.ShivSenaPalgharVidhanSabha/",
-        "icon":"fa-facebook-f"
+      "url": "https://www.facebook.com/213483665658521/",
+      "icon": "fa-facebook-f"
     },
-     {
-        "url":"#",
-        "icon":"fa-twitter"
+    {
+      "url": "#",
+      "icon": "fa-twitter"
     },
-     {
-        "url":"#",
-        "icon":"fa-google"
-    }   
+    {
+      "url": "#",
+      "icon": "fa-google"
+    }
   ]
 
   constructor() { }

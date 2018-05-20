@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
             <span [ngClass]="item.icon"
                   class="fa fa-lg"></span>
             <h4>{{item.title}}</h4>
-            <p>{{item.desc}}</p>
+            <p>{{item.preview}}</p>
 
         </div><!-- /.col-md-4 -->
 
@@ -24,21 +24,21 @@ import { Router } from '@angular/router';
   </div><!-- /.row -->
   `,
   styleUrls: ['./about.component.scss'],
-  animations:[
-    
+  animations: [
+
     trigger('bounceInUp', [
 
-        transition('void => *', [
+      transition('void => *', [
 
-            animate(1000, keyframes([
+        animate(1000, keyframes([
 
-                style({opacity: 0, transform : 'translateY(400px)', offset: 0}),
-                style({transform : 'translateY(-30px)', offset: .60}),
-                style({transform : 'translateY(10px)', offset: .80}),
-                style({opacity: 1, transform : 'translateY(0)', offset: 1}),
+          style({ opacity: 0, transform: 'translateY(400px)', offset: 0 }),
+          style({ transform: 'translateY(-30px)', offset: .60 }),
+          style({ transform: 'translateY(10px)', offset: .80 }),
+          style({ opacity: 1, transform: 'translateY(0)', offset: 1 }),
 
-            ]))
-        ])
+        ]))
+      ])
     ])
 
   ]
@@ -47,19 +47,19 @@ import { Router } from '@angular/router';
 
 export class AboutComponent {
 
- @Input() abouts = [];
+  @Input() abouts = [];
 
- title = {
-            eng: 'About',
-            mar: 'माझ्याबद्दल'
-    }
+  title = {
+    eng: 'About',
+    mar: 'माझ्याबद्दल'
+  }
 
-    constructor(private router:Router) {
-    }
+  constructor(private router: Router) {
+  }
 
-    onClick(itemId:string) {
-        this.router.navigate(['/about', itemId]);
-    }
+  onClick(itemId: string) {
+    this.router.navigate(['/about', itemId]);
+  }
 
 
 }

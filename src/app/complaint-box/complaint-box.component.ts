@@ -27,17 +27,17 @@ export class ComplaintBoxComponent implements OnInit {
     mar: 'तक्रार फॉर्म'
   }
 
-	recaptchaVerifier = null;
-	confirmationResult = null;
+  recaptchaVerifier = null;
+  confirmationResult = null;
 
-  constructor(private _auth: AngularFireAuth, private _db: AngularFireDatabase) { 
+  constructor(private _auth: AngularFireAuth, private _db: AngularFireDatabase) {
 
-		$('.modal').modal({
-			backdrop: 'static',
-			show: false
-		});
+    $('.modal').modal({
+      backdrop: 'static',
+      show: false
+    });
 
-		_auth.auth.languageCode = localStorage.getItem('lang') && localStorage.getItem('lang') == 'eng' ? 'en': 'mr';
+    _auth.auth.languageCode = localStorage.getItem('lang') && localStorage.getItem('lang') === 'eng' ? 'en' : 'mr';
   }
 
   ngOnInit() {
@@ -45,19 +45,19 @@ export class ComplaintBoxComponent implements OnInit {
     this.newCap();
   }
 
-  newCap(){
+  newCap() {
 
-		this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
-			'size': 'invisible',
-			'callback': response => {
-				// reCAPTCHA solved, allow signInWithPhoneNumber.
-				console.log(response);
-				$('#sign-in-button').click(e=> this.onSubmit()).click();
+    this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
+      'size': 'invisible',
+      'callback': response => {
+        // reCAPTCHA solved, allow signInWithPhoneNumber.
+        // console.log(response);
+        $('#sign-in-button').click(e => this.onSubmit()).click();
 
-			}
-		});
-		this.recaptchaVerifier.render();
-	}
+      }
+    });
+    this.recaptchaVerifier.render();
+  }
 
   newComplaint() {
     this.complaint = {
@@ -72,42 +72,42 @@ export class ComplaintBoxComponent implements OnInit {
     this.postSuccess = false;
     this.postError = false;
     this.loading = true;
-    this._auth.auth.signInWithPhoneNumber('+91'+this.complaint.contactNo, this.recaptchaVerifier)
-					.then(confirmationResult => {
-            this.codeError = false;
-            console.log(confirmationResult);
-            this.confirmationResult = confirmationResult
-            this.loading = false;
-            $('.modal').modal('show');
-          }).catch((error) =>{
-            this.postError = error;
-            this.loading = false;
-            console.log(error);
-        });
+    this._auth.auth.signInWithPhoneNumber('+91' + this.complaint.contactNo, this.recaptchaVerifier)
+      .then(confirmationResult => {
+        this.codeError = false;
+        // console.log(confirmationResult);
+        this.confirmationResult = confirmationResult
+        this.loading = false;
+        $('.modal').modal('show');
+      }).catch((error) => {
+        this.postError = error;
+        this.loading = false;
+        // console.log(error);
+      });
   }
 
   verify(code: string, form) {
     this.codeError = false;
     this.loading = true;
     this.confirmationResult.confirm(code).then((result) => {
-		  // User signed in successfully.
-		  //var user = result.user;
-			$('.modal').modal('hide');
-      this.complaint['user_metadata']=JSON.parse(localStorage.getItem('user_info'));
-      this.complaint['timestamp']=firebase.database.ServerValue.TIMESTAMP;
+      // User signed in successfully.
+      // var user = result.user;
+      $('.modal').modal('hide');
+      this.complaint['user_metadata'] = JSON.parse(localStorage.getItem('user_info'));
+      this.complaint['timestamp'] = firebase.database.ServerValue.TIMESTAMP;
       this._db.database.ref('/complaints/').push(this.complaint);
       this.loading = false;
       this.postSuccess = true;
       this.newComplaint();
       form.reset();
       // ...
-		}).catch( (error) =>{
-		// User couldn't sign in (bad verification code?)
-			console.log(error);
-			this.codeError = true;
+    }).catch((error) => {
+      // User couldn't sign in (bad verification code?)
+      // console.log(error);
+      this.codeError = true;
       this.loading = false;
-		// ...
-		});
+      // ...
+    });
   }
 
 }

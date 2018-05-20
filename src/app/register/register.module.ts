@@ -6,15 +6,15 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { UsersComponent } from './users/users.component';
 
-const routes : Routes = [
-    {path: '', component: RegisterComponent},
-    {path: 'users', component: UsersComponent}
-] 
+const routes: Routes = [
+  { path: '', component: RegisterComponent },
+  // {path: 'users', component: UsersComponent}
+]
 
 @NgModule({
-    imports: [RouterModule.forChild(routes), SharedModule,AngularFireAuthModule, AngularFireDatabaseModule],
-    providers: [],
-    declarations: [RegisterComponent, UsersComponent]
+  imports: [RouterModule.forChild(routes), SharedModule, AngularFireAuthModule, AngularFireDatabaseModule],
+  providers: [],
+  declarations: [RegisterComponent, UsersComponent]
 })
 
-export class RegisterModule {}
+export class RegisterModule { }

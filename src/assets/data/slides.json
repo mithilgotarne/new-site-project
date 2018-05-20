@@ -1,9 +1,33 @@
-[
-    {"caption": "", "imgUrl": "assets/images/main-slider/slider-0.jpg" },
-    {"caption": "", "imgUrl": "assets/images/main-slider/slider-1.jpg" },
-    {"caption": "", "imgUrl": "assets/images/main-slider/slider-2.jpg" },
-    {"caption": "", "imgUrl": "assets/images/main-slider/slider-3.jpg" },
-    {"caption": "", "imgUrl": "assets/images/main-slider/slider-5.jpg" },
-    {"caption": "", "imgUrl": "assets/images/main-slider/slider-6.jpg" },
-    {"caption": "", "imgUrl": "assets/images/main-slider/slider-7.jpg" }
+[{
+    "caption": "",
+    "imgUrl": "assets/images/main-slider/slide-bd.png"
+  },
+  {
+    "caption": "",
+    "imgUrl": "assets/images/main-slider/slider-0.jpg"
+  },
+  {
+    "caption": "",
+    "imgUrl": "assets/images/main-slider/slider-1.jpg"
+  },
+  {
+    "caption": "",
+    "imgUrl": "assets/images/main-slider/slider-2.jpg"
+  },
+  {
+    "caption": "",
+    "imgUrl": "assets/images/main-slider/slider-3.jpg"
+  },
+  {
+    "caption": "",
+    "imgUrl": "assets/images/main-slider/slider-5.jpg"
+  },
+  {
+    "caption": "",
+    "imgUrl": "assets/images/main-slider/slider-6.jpg"
+  },
+  {
+    "caption": "",
+    "imgUrl": "assets/images/main-slider/slider-7.jpg"
+  }
 ]

@@ -93,9 +93,9 @@ export class AboutComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     $('#footer-top').addClass('container').removeClass('container-fluid');
     $('body').removeClass('body-container').addClass('body-bg');
-    //$('body').css('background-color', '#');
-    //$('#about-container').css('min-height', '0px');
-    //console.log("called")
+    // $('body').css('background-color', '#');
+    // $('#about-container').css('min-height', '0px');
+    // // console.log("called")
   }
 
   onClick(id: string) {

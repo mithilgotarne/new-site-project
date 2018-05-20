@@ -2,9 +2,23 @@
 
   <div class="row">
 
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-9 col-md-offset-1">
 
-      <mg-page-header [title]="title"></mg-page-header>
+      <div class="row">
+        <div class="col-md-5">
+          <img class="img-responsive" src="assets/images/shivbandhan.jpg">
+        </div>
+        <div class="col-md-7">
+          <mg-page-header [title]="title"></mg-page-header>
+          <p style="font-size: 15px; color: #ffb381; font-weight:600; " align="center">मी माझ्या कुलदैवताला आणि छत्रपती शिवरायाला स्मरून शपथ घेतो की, मी माझ्या शिवसेना या संघटनेशी आजन्म इमान राखीन.
+            <br>पद असो वा नसो, मी एक एकनिष्ठ शिवसैनिक म्हणून शिवसेनेशी कधीही गद्दारी वा बेइमानी करणार नाही.
+            <br>शिवसेनाप्रमुखांचे आदेश मी एका कडवट निष्ठेने पाळीन.
+            <br>त्याचबरोबर येत्या निवडणुकीत शिवसेनेचे भगवा फडकवण्याचे जे स्वप्न आहे ते निष्ठेने शपथपूर्वक पूर्ण करीन.
+          </p>
+        </div>
+      </div>
+
+      <br>
 
       <form class="form-horizontal" #memberForm="ngForm">
 
@@ -12,7 +26,8 @@
 
           <div class="col-xs-5">
 
-            <label for="fullname" class="required">सभासदाचे नाव<br>( Member's Name )</label>
+            <label for="fullname" class="required">सभासदाचे नाव
+              <br>( Member's Name )</label>
 
           </div>
 
@@ -35,7 +50,8 @@
           <div class="col-xs-5">
 
 
-              <label for="fullname" class="required">सभासदाचे मोबाइल नंबर<br>( Member's Mobile Number )</label>
+            <label for="fullname" class="required">सभासदाचे मोबाइल नंबर
+              <br>( Member's Mobile Number )</label>
 
 
           </div>
@@ -44,9 +60,9 @@
 
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon1">+91</span>
-          
+
               <input class="form-control" type="text" (ngModelChange)="numberExists = false" name="number" id="number" pattern="^\d{10}$"
-              required [(ngModel)]="member.number" #number="ngModel">
+                required [(ngModel)]="member.number" #number="ngModel">
 
             </div>
 
@@ -127,8 +143,10 @@
 
             <div class="alert alert-info">
 
-              टीप: <label class="required"></label> चिन्हांकित आवश्यक फील्ड आहेत.
-              <br> Note: <label class="required"></label> marked are required fields.
+              टीप:
+              <label class="required"></label> चिन्हांकित आवश्यक फील्ड आहेत.
+              <br> Note:
+              <label class="required"></label> marked are required fields.
 
             </div>
 
@@ -167,8 +185,8 @@
             <div class="alert alert-danger">
 
               <ul>
-                <li *ngFor="let w of postError.errors">क्षमस्व, दुसरा मोबाइल नंबर वापरा (Sorry, {{w.message}}.)</li>
-                <li *ngFor="let w of postError.warnings">क्षमस्व, दुसरा मोबाइल नंबर वापरा (Sorry, {{w.message}}.)</li>
+                <li *ngFor="let w of registerError.errors">क्षमस्व, दुसरा मोबाइल नंबर वापरा (Sorry, {{w.message}}.)</li>
+                <li *ngFor="let w of registerError.warnings">क्षमस्व, दुसरा मोबाइल नंबर वापरा (Sorry, {{w.message}}.)</li>
               </ul>
 
             </div>
@@ -200,9 +218,9 @@
         <div class="form-group">
 
           <label for="code">
-			  SMS द्वारे पाठविलेला OTP प्रविष्ट करा <br>
-			  (Enter OTP sent via SMS)
-		  </label>
+            SMS द्वारे पाठविलेला OTP प्रविष्ट करा
+            <br> (Enter OTP sent via SMS)
+          </label>
           <input class="form-control" name="code" type="text" #code>
 
         </div>

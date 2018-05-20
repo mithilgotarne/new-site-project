@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { InfoService } from '../shared/info.service'; 
+import { InfoService } from '../shared/info.service';
 
 declare var $: any;
 
 @Component({
   selector: 'mg-contact',
   template: `
-  
+
       <div class="parallax"></div>
-      
+
       <div class="container">
 
         <div class="row">
@@ -16,7 +16,9 @@ declare var $: any;
           <div class="col-md-8">
 
             <div class="embed-responsive embed-responsive-4by3">
-              <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60102.8915539932!2d72.73399743233267!3d19.69427816612327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be71cdea3ddc177%3A0xdb2b913629961d24!2sPalghar%2C+Maharashtra+401404!5e0!3m2!1sen!2sin!4v1467911367244"></iframe>
+              <iframe class="embed-responsive-item"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60102.8915539932!2d72.73399743233267!3d19.69427816612327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be71cdea3ddc177%3A0xdb2b913629961d24!2sPalghar%2C+Maharashtra+401404!5e0!3m2!1sen!2sin!4v1467911367244"
+              ></iframe>
             </div>
 
           </div>
@@ -60,13 +62,15 @@ declare var $: any;
 })
 export class ContactComponent implements OnInit {
 
-  contact : any;
+  contact: any;
 
-  constructor(private _info : InfoService) {}
+  constructor(private _info: InfoService) { }
 
   ngOnInit() {
     this._info.getContactInfo().subscribe(
-      res => {this.contact = res ; console.log(this.contact);}
+      res => {
+        this.contact = res; // console.log(this.contact);
+      }
     );
   }
 
