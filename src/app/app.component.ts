@@ -13,8 +13,8 @@ declare var $: any;
 
 export class AppComponent implements OnInit {
 
-  firstname = { mar: 'अमित', eng: 'Amit' };
-  lastname = { mar: 'घोडा', eng: 'Ghoda' };
+  firstname = { mar: 'अमित कृष्णाजी घोडा', eng: 'Amit Krushnaji Ghoda' };
+  lastname = { mar: '', eng: '' };
   social = [
     {
       "url": "https://www.facebook.com/213483665658521/",

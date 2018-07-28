@@ -20,6 +20,7 @@ declare var $: any;
                         (click)="onClick(b.id)">
 
                         <a [attr.href]="'#'+ b.id" [attr.aria-controls]="n"
+                         *ngIf="!!b.title"
                            role="tab" data-toggle="tab">
 
                             <i class="fa" [ngClass]="b.icon"></i>

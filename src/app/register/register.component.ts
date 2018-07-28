@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
 
   title = {
     eng: 'Register',
-    mar: 'सभासद नोंदणी'
+    mar: 'शिवबंधन'
   };
 
   member: any;

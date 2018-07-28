@@ -4,7 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
   selector: 'mg-page-header',
   template: `
     <div class="page-header" style="margin-top: 0;">
-      <h1 style="margin-top: 0">
+      <h1 style="margin-top: 0; font-weight: bold">
         <span class="primary-color">{{ partOne }}</span> {{ partTwo }}
       </h1>
     </div>

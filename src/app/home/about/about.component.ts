@@ -12,10 +12,9 @@ import { Router } from '@angular/router';
              (click)="onClick(item.id)"
              class="col-md-4 about">
 
-            <span [ngClass]="item.icon"
-                  class="fa fa-lg"></span>
-            <h4>{{item.title}}</h4>
-            <p>{{item.preview}}</p>
+            <span><img class="img-responsive border-orange" [ngClass]="{ 'img-circle' : !!item.title}" [src]="item.preview_img"/></span>
+            <h3 *ngIf="!!item.title">{{item.title}}</h3>
+            <p *ngIf="!!item.title">{{item.preview}}</p>
 
         </div><!-- /.col-md-4 -->
 

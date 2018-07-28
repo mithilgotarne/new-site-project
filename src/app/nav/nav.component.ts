@@ -11,7 +11,7 @@ declare var $: any;
             
                 <div class="navbar-header">
 
-            <a class="navbar-brand" [routerLink]="['/']"><span style="color: #FD694D">{{firstName[lang]}}</span> {{lastName[lang]}}</a>
+            <a class="navbar-brand" [routerLink]="['/']"><span style="color: #FD694D"><small>आपला आमदार</small>{{firstName[lang]}}</span> {{lastName[lang]}}</a>
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -66,23 +66,23 @@ declare var $: any;
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         
-                        <li style="padding-right: 4px">
-                            <button class="btn btn-success navbar-btn"
+                        <li style="padding-right: 10px">
+                            <button class="btn btn-primary navbar-btn"
                             [routerLink]="['/register']" >{{nav.register[lang]}}</button>
                         </li> 
                         
                         <li>
-                            <button class="btn btn-danger navbar-btn"
+                            <button class="btn btn-info navbar-btn"
                             [routerLink]="['/complaint-box']" >{{nav.complaint_box[lang]}}</button>
                         </li> 
                         
 
-                        <li>
+                        <!--li>
                             <select class="form-control" #language (change)="changeLang(language.value)">
                                 <option value="mar">मराठी</option>
                                 <option value="eng">English</option>
                             </select>
-                        </li>
+                        </li-->
 
                     </ul>
 
@@ -111,6 +111,19 @@ declare var $: any;
             padding-top: 5px;
             padding-bottom: 5px;
         }
+        .container-fluid{
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+        .navbar-brand small {
+            display:block;
+            font-size:14px;
+            color: black;
+            font-weight: bold;
+            margin-top: -10px;
+       }
+
+        .navbar-toggle {top:10px}
       `],
     inputs: ['firstName', 'lastName'],
 })
@@ -127,7 +140,7 @@ export class NavComponent implements OnInit {
         },
         about: {
             eng: 'About',
-            mar: 'माझ्याबद्दल'
+            mar: 'माझे मनोगत'
         },
         socialInitiatives: {
             eng: 'Social Initiatives',
@@ -147,7 +160,7 @@ export class NavComponent implements OnInit {
         },
         register: {
             eng: 'Register',
-            mar: 'सभासद नोंदणी'
+            mar: 'शिवबंधन'
         },
         complaint_box: {
             eng: 'Complaint Box',
